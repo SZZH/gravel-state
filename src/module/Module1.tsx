@@ -1,9 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
-import useGravelState from '../gravel/index'
+import useGravelState, { createGravelState } from '../gravel/index'
+
+const state1Config = createGravelState({
+  key: 'state1',
+  defaultValue: '1'
+})
 
 const Module1 = () => {
-  const [state1, setState1] = useGravelState('state1')
+  const [state1, setState1] = useGravelState(state1Config)
 
+  console.log('module1 rerender')
   return (
     <div style={{border: '1px solid #000'}}>
       module1
